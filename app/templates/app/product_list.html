@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% block title %}Myntra|Home{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div>
+                <h5 class="mt-2">Search By Category </h5>
+                <hr>
+                <a href="">By Cloths</a><br>
+                <a href="">By Mobile</a><br>
+                <a href="">By Shoes</a><br>
+                <a href="">By Electronics</a><br>
+            </div>
+            <div>
+                <h5>Search By Price Range</h5>
+                <hr>
+                <input class="form-control" type="number" name="min" placeholder="Min Price"><br>
+                <input class="form-control" type="number" name="max" placeholder="max price"><br>
+                <input type="submit" class="btn btn-danger" value="submit">
+            </div>
+            <div>
+                <h5>Sort By Price </h5>
+                <hr>
+                <a href="">Low to High</a><br>
+                <a href="">high to low</a><br>
+            </div>
+        </div>
+        <div class="col-md-9 p-3">
+            <div class="row">
+                {% for x in object_list %}
+                <div class="col-md-3">
+                    <div class="card" style="width: 16rem;">
+                        <img src="{{x.image.url}}" class="card-img-top" width="200" height="200" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{x.productname}}</h5>
+                            <p class="card-text">{{x.description}}</p>
+                            <a href="/ProductUpdate/{{x.pk}}" class="btn btn-primary">Edit</a>
+                            <a href="/ProductRemove/{{x.pk}}" class="btn btn-primary">Remove</a>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

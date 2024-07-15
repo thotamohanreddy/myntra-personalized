@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Myntra|Home{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <table class="table table-bordered">
+            <tr>
+                <th>Sr.No</th>
+                <th>OrderId</th>
+                <th>Product Name</th>
+                <th>Product Qty</th>
+                <th>Total Amount Paid</th>
+            </tr>
+            {% for x in orderdata %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{x.orderid}}</td>
+                <td>{{x.productid.productname}}</td>
+                <td>{{x.qty}}</td>
+                <td>totalamount</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

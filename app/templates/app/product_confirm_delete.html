@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block title %}Myntra|Home{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <center>
+            <form action="" method="post">
+                {% csrf_token %}
+                <h3>Are You Sure you want to Remove{{object.productname}}</h3>
+                <input type="submit" value="confirm">
+            </form>
+            <a href="/ProductList"><input type="button" value="Cancel"></a>
+
+        </center>
+    </div>
+</div>
+{% endblock %}
